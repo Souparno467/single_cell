@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="marker-gene-section">
+    <h2>Marker Gene Analysis</h2>
+    <p>Top marker genes per cluster:</p>
+    {{ markers_html|safe }}
+
+    <h3>Heatmap</h3>
+    <img src="{{ url_for('static', filename='plots/' + heatmap_path) }}" alt="Marker Heatmap" width="600">
+  </div>
+{% endblock %}

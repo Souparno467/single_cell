@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+/* ====== Body Background Override ====== */
+body {
+    background: url('/static/rna.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ====== Main Content Wrapper ====== */
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ====== Main Content Box ====== */
+.main-content-box {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 50px;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 
+                0 0 80px rgba(0, 255, 255, 0.15),
+                inset 0 0 30px rgba(0, 255, 255, 0.05);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Custom Scrollbar ====== */
+.main-content-box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.main-content-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.main-content-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(0, 255, 255, 0.6), rgba(0, 188, 212, 0.6));
+    border-radius: 10px;
+    border: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+.main-content-box::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(0, 255, 255, 0.8), rgba(0, 188, 212, 0.8));
+}
+
+/* ====== Headings ====== */
+.main-content-box h2 {
+    color: #00ffff;
+    text-shadow: 0 0 25px rgba(0, 255, 255, 1), 
+                 0 0 45px rgba(0, 255, 255, 0.8), 
+                 0 0 65px rgba(0, 255, 255, 0.6);
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 45px rgba(0, 255, 255, 0.8); }
+    100% { text-shadow: 0 0 35px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.9), 0 0 80px rgba(0, 255, 255, 0.7); }
+}
+
+.main-content-box h3 {
+    color: #00e6e6;
+    text-shadow: 0 0 20px rgba(0, 230, 230, 1), 
+                 0 0 35px rgba(0, 230, 230, 0.8), 
+                 0 0 55px rgba(0, 230, 230, 0.6);
+    margin-bottom: 35px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* ====== Paragraphs ====== */
+.main-content-box p {
+    color: #b3e5fc;
+    line-height: 2;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(179, 229, 252, 0.9), 
+                 0 0 25px rgba(179, 229, 252, 0.7);
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* ====== Image Styling ====== */
+.main-content-box img {
+    display: block;
+    margin: 40px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 
+                0 0 50px rgba(0, 255, 255, 0.3),
+                0 10px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.main-content-box img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.7), 
+                0 0 70px rgba(0, 255, 255, 0.5),
+                0 15px 50px rgba(0, 0, 0, 0.8);
+    border-color: rgba(0, 255, 255, 0.6);
+}
+
+/* ====== Custom Bulleted List ====== */
+.main-content-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-content-box ul li {
+    position: relative;
+    font-size: 1.3rem;
+    color: #b3e5fc;
+    text-shadow: 0 0 15px rgba(179, 229, 252, 1), 
+                 0 0 28px rgba(179, 229, 252, 0.8),
+                 0 0 40px rgba(179, 229, 252, 0.6);
+    padding-left: 45px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.main-content-box ul li:hover {
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1), 
+                 0 0 35px rgba(0, 255, 255, 0.9),
+                 0 0 55px rgba(0, 255, 255, 0.7);
+    transform: translateX(8px);
+}
+
+.main-content-box ul li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ffff;
+    font-size: 1.6em;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1), 
+                 0 0 35px rgba(0, 255, 255, 0.8),
+                 0 0 50px rgba(0, 255, 255, 0.6);
+    animation: bulletPulse 2s infinite alternate;
+}
+
+@keyframes bulletPulse {
+    0% { transform: translateY(-50%) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-50%) scale(1.15); opacity: 1; }
+}
+
+/* ====== Button Container ====== */
+.button-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== Stylish Buttons ====== */
+.button-link {
+    background: linear-gradient(135deg, #00e6e6, #00bcd4, #0097a7);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    color: #000000;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4), 
+                0 0 40px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.button-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.button-link:hover::before {
+    left: 100%;
+}
+
+.button-link:hover {
+    background: linear-gradient(135deg, #00bcd4, #00e6e6, #00ffff);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.6), 
+                0 0 60px rgba(0, 255, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.8);
+}
+
+.button-link:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.5), 
+                0 0 40px rgba(0, 255, 255, 0.4);
+}
+</style>
+
+<div class="main-content-wrapper">
+  <div class="main-content-box">
+    <h2>Unsupervised Clustering Results</h2>
+    
+    <p>UMAP visualization of Leiden clusters:</p>
+    
+    <img src="{{ url_for('static', filename='plots/' + plot_path) }}" alt="UMAP Plot">
+
+    <h3>Clusters Detected:</h3>
+    <ul>
+      {% for c in clusters %}
+        <li>Cluster {{ c }}</li>
+      {% endfor %}
+    </ul>
+
+    <div class="button-container">
+      <a href="{{ url_for('download_clusters') }}" class="button-link">⬇️ Download Clusters</a>
+      <a href="{{ url_for('index') }}" class="button-link">⬅️ Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

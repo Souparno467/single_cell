@@ -1,0 +1,514 @@
+/* ====== Global Reset ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ====== Body ====== */
+body {
+    font-family: 'Roboto', sans-serif; /* Changed to a more professional font */
+    background: url('/static/rna.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: backgroundAnimation 30s ease infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* ====== Header ====== */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    text-shadow: 0 0 25px rgba(0,255,255,1), 0 0 40px rgba(0,255,255,0.8), 0 0 60px rgba(0,255,255,0.6); /* Enhanced glow */
+    animation: glowEffect 3s infinite alternate;
+}
+
+@keyframes glowEffect {
+    0% { text-shadow: 0 0 20px rgba(0,255,255,1), 0 0 30px rgba(0,255,255,0.8); }
+    100% { text-shadow: 0 0 25px rgba(0,255,255,1), 0 0 40px rgba(0,255,255,0.8), 0 0 60px rgba(0,255,255,0.6); }
+}
+
+nav a {
+    margin: 0 15px;
+    color: #e0f7fa;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    text-shadow: 0 0 10px rgba(224,247,250,0.7), 0 0 15px rgba(224,247,250,0.5); /* Enhanced glow for nav links */
+}
+
+nav a:hover {
+    color: #00ffff; /* Brighter cyan hover color */
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(0,255,255,1), 0 0 30px rgba(0,255,255,0.8); /* Stronger glow on hover */
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #00ffff; /* Brighter cyan underline */
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+}
+
+/* ====== Main Content Wrapper ====== */
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Increased padding */
+}
+
+/* ====== Main Content Box ====== */
+.main-content-box {
+    background: rgba(255, 255, 255, 0.07); /* Slightly more transparent */
+    backdrop-filter: blur(15px); /* Increased blur for more depth */
+    border-radius: 20px; /* More rounded corners */
+    padding: 40px; /* Increased padding */
+    max-width: 1000px; /* Further increased max-width */
+    width: 100%;
+    box-shadow: 0 12px 45px 0 rgba(0, 0, 0, 0.55); /* Stronger, deeper shadow */
+    border: 1px solid rgba(255, 255, 255, 0.25); /* Stronger border */
+    max-height: 90vh; /* Increased max-height */
+    overflow-y: auto;
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1.8s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Scrollbar Styling for Webkit Browsers ====== */
+.main-content-box::-webkit-scrollbar {
+    width: 14px; /* Even wider scrollbar */
+}
+
+.main-content-box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.main-content-box::-webkit-scrollbar-thumb {
+    background: rgba(0,255,255,0.4); /* Brighter cyan scrollbar thumb */
+    border-radius: 10px;
+    border: 3px solid rgba(0,255,255,0.3); /* Stronger border */
+}
+
+.main-content-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,255,255,0.6);
+}
+
+/* ====== Headings in Main Content Box ====== */
+.main-content-box h2 {
+    color: #00e6e6;
+    text-shadow: 0 0 20px rgba(0,230,230,1), 0 0 35px rgba(0,230,230,0.8), 0 0 55px rgba(0,230,230,0.6); /* Even stronger glow */
+    margin-bottom: 25px; /* Increased margin */
+    text-align: center; /* Center the welcome heading */
+}
+
+.main-content-box h3 {
+    color: #00e6e6;
+    text-shadow: 0 0 20px rgba(0,230,230,1), 0 0 35px rgba(0,230,230,0.8), 0 0 55px rgba(0,230,230,0.6); /* Even stronger glow */
+    margin-bottom: 25px; /* Increased margin */
+    text-align: center; /* Center the heading */
+}
+
+/* ====== Paragraphs in Main Content Box ====== */
+.main-content-box p {
+    color: #e0f7fa;
+    line-height: 1.9;
+    margin-bottom: 25px; /* Increased margin */
+    text-shadow: 0 0 12px rgba(224,247,250,0.9), 0 0 20px rgba(224,247,250,0.7); /* Stronger glow for paragraphs */
+    text-align: center; /* Center paragraphs */
+}
+
+/* ====== Labels within Forms ====== */
+.main-content-box label {
+    color: #b3e5fc;
+    text-shadow: 0 0 10px rgba(179,229,252,0.8), 0 0 15px rgba(179,229,252,0.6); /* Stronger glow for labels */
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+
+/* ====== Buttons and Links ====== */
+.button-container {
+    display: flex;
+    gap: 25px; /* Increased gap */
+    margin-top: 40px; /* Increased margin */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-content-box button, .main-content-box a.button-link {
+    background: linear-gradient(90deg, #00e6e6, #00bcd4); /* More vibrant gradient */
+    border: 1px solid rgba(0,255,255,0.4); /* Subtle border */
+    color: #000000; /* Dark text for contrast */
+    padding: 14px 28px; /* Larger padding */
+    border-radius: 35px; /* More rounded */
+    font-size: 1.1rem;
+    font-weight: 800; /* Bolder font */
+    letter-spacing: 0.8px; /* Increased letter spacing */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.2s ease, background 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,255,255,0.6), 0 0 35px rgba(0,255,255,0.4); /* Stronger, more vibrant shadow */
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-content-box button:hover, .main-content-box a.button-link:hover {
+    background: linear-gradient(90deg, #00bcd4, #00e6e6); /* Reverse gradient on hover */
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0,255,255,0.8), 0 0 45px rgba(0,255,255,0.7); /* Even stronger glow on hover */
+}
+
+.main-content-box button::before, .main-content-box a.button-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3); /* Brighter ripple effect */
+    border-radius: 50%;
+    transition: all 0.7s ease-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+}
+
+.main-content-box button:hover::before, .main-content-box a.button-link:hover::before {
+    animation: buttonRipple 0.7s ease-out forwards;
+}
+
+@keyframes buttonRipple {
+    0% { width: 0; height: 0; opacity: 0.5; }
+    100% { width: 300%; height: 300%; opacity: 0; }
+}
+
+/* ====== Forms ====== */
+.main-content-box form {
+    background: rgba(255, 255, 255, 0.07); /* Slightly darker form background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-content-box input[type="file"], .main-content-box input[type="text"] {
+    background: rgba(255, 255, 255, 0.12); /* Slightly darker input background */
+    border: 1px solid rgba(0,255,255,0.4); /* Stronger border */
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-content-box input[type="file"]:focus, .main-content-box input[type="text"]:focus {
+    outline: none;
+    border-color: #00ffff; /* Brighter focus border */
+    box-shadow: 0 0 15px rgba(0,255,255,0.8); /* Stronger focus glow */
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.main-content-box input[type="file"]::file-selector-button {
+    background: linear-gradient(90deg, #00e6e6, #00bcd4); /* Vibrant gradient */
+    color: black; /* Dark text for contrast */
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,255,255,0.3);
+}
+
+.main-content-box input[type="file"]::file-selector-button:hover {
+    background: linear-gradient(90deg, #00bcd4, #00e6e6); /* Reverse gradient on hover */
+    box-shadow: 0 6px 15px rgba(0,255,255,0.5);
+}
+
+/* ====== Tables ====== */
+.main-content-box .table {
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: inset 0 0 12px rgba(0,255,255,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.main-content-box .table th {
+    background: linear-gradient(90deg, rgba(0,188,212,0.9), rgba(0,230,230,0.8)); /* Stronger gradient header */
+    color: black;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6); /* Stronger glow */
+    font-weight: bold;
+    padding: 15px;
+}
+
+.main-content-box .table td {
+    color: #e0f7fa;
+    border: 1px solid rgba(0,255,255,0.3);
+    padding: 12px 15px;
+}
+
+.main-content-box .table-striped tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.main-content-box .table-striped tr:hover {
+    background: rgba(255, 255, 255, 0.08); /* Stronger hover effect */
+    transition: background-color 0.3s ease;
+}
+
+/* ====== Images (within content box) ====== */
+.main-content-box img {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 35px rgba(0,255,255,0.4); /* Stronger glow */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.main-content-box img:hover {
+    transform: scale(1.03); /* Slightly more zoom */
+    box-shadow: 0 0 30px rgba(0,255,255,0.9), 0 0 50px rgba(0,255,255,0.7); /* Even stronger glow on hover */
+}
+
+/* ====== Status Messages (Index Page) ====== */
+.status-message-container {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(0,255,255,0.1);
+}
+
+.status-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 15px rgba(255,255,255,0.5); /* Stronger glow */
+    line-height: 1.5;
+}
+
+.status-message.success {
+    color: #4CAF50; /* Green */
+    text-shadow: 0 0 12px rgba(76,175,80,0.9), 0 0 20px rgba(76,175,80,0.7); /* Stronger glow */
+}
+
+.status-message.warning {
+    color: #FFC107; /* Amber */
+    text-shadow: 0 0 12px rgba(255,193,7,0.9), 0 0 20px rgba(255,193,7,0.7); /* Stronger glow */
+}
+
+/* ====== Footer ====== */
+footer {
+    background: rgba(0, 0, 0, 0.75); /* Slightly darker footer */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    box-shadow: 0 -6px 15px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 100;
+}
+
+/* ====== Error Page Styling ====== */
+.error-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.error-heading {
+    color: #ff4d4d;
+    text-shadow: 0 0 20px rgba(255,77,77,0.9), 0 0 35px rgba(255,77,77,0.7), 0 0 50px rgba(255,77,77,0.5); /* Enhanced glow */
+    font-size: 3rem;
+    margin-bottom: 25px;
+    animation: pulseGlow 2s infinite alternate;
+}
+
+.error-message {
+    color: #ffcccc;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255,204,204,0.6), 0 0 15px rgba(255,204,204,0.4); /* Stronger glow for error messages */
+}
+
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 20px rgba(255,77,77,0.9), 0 0 35px rgba(255,77,77,0.7), 0 0 50px rgba(255,77,77,0.5); }
+    100% { text-shadow: 0 0 25px rgba(255,77,77,1), 0 0 40px rgba(255,77,77,0.8), 0 0 60px rgba(255,77,77,0.6); }
+}
+
+/* ====== Marker Gene Analysis Page Styling ====== */
+.marker-gene-section {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.09); /* Slightly darker background */
+    border-radius: 12px;
+    box-shadow: inset 0 0 18px rgba(0,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.marker-gene-section h3 {
+    color: #33ccff;
+    text-shadow: 0 0 15px rgba(51,204,255,0.9), 0 0 25px rgba(51,204,255,0.7), 0 0 40px rgba(51,204,255,0.5); /* Stronger glow */
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.marker-gene-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.marker-gene-section th, .marker-gene-section td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,255,255,0.3);
+}
+
+.marker-gene-section th {
+    background-color: rgba(0,204,204,0.6); /* Cyan background */
+    color: black;
+    text-shadow: 0 0 6px rgba(255,255,255,0.6);
+    font-weight: bold;
+}
+
+.marker-gene-section td {
+    color: #e0f7fa;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.marker-gene-section tr:hover td {
+    background-color: rgba(255, 255, 255, 0.06);
+    transition: background-color 0.3s ease;
+}
+
+.marker-gene-section img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    border: 1px solid rgba(0,255,255,0.4);
+    box-shadow: 0 0 25px rgba(0,255,255,0.7), 0 0 40px rgba(0,255,255,0.5);
+    border-radius: 10px;
+}
+
+.main-content-box h3 {
+    color: #00e6e6;
+    text-shadow: 0 0 18px rgba(0,230,230,1), 0 0 30px rgba(0,230,230,0.8), 0 0 50px rgba(0,230,230,0.6); /* Even stronger glow */
+    margin-bottom: 25px; /* Increased margin */
+    text-align: center; /* Center the heading */
+}
+
+.main-content-box p {
+    color: #e0f7fa;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(224,247,250,0.8), 0 0 15px rgba(224,247,250,0.6); /* Stronger glow for paragraphs */
+    text-align: center;
+}
+
+.main-content-box ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0 auto; /* Center the list */
+    max-width: 650px; /* Slightly wider for better text flow */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start for bullet points */
+    gap: 18px; /* Increased space between list items */
+    text-align: left; /* Ensure text within list items aligns left */
+}
+
+.main-content-box ul li {
+    position: relative;
+    font-size: 1.2rem; /* Slightly larger font size */
+    color: #b3e5fc;
+    text-shadow: 0 0 15px rgba(179,229,252,1), 0 0 25px rgba(179,229,252,0.8); /* Even stronger glow for list items */
+    padding-left: 35px; /* More space for custom bullet */
+    width: 100%; /* Ensure li takes full width to align content */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.main-content-box ul li::before {
+    content: '✨'; /* Custom glowing bullet point */
+    position: absolute;
+    left: 0;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    color: #00ffff; /* Brighter cyan bullet */
+    font-size: 1.3em; /* Larger bullet point */
+    text-shadow: 0 0 12px rgba(0,255,255,1), 0 0 20px rgba(0,255,255,0.8); /* Stronger glow for bullet */
+    animation: bulletPulse 1.5s infinite alternate;
+}
+
+@keyframes bulletPulse {
+    0% { transform: translateY(-50%) scale(1); opacity: 0.9; }
+    100% { transform: translateY(-50%) scale(1.1); opacity: 1; }
+}
+
+.main-content-box ul li a.button-link {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 800;
+    text-shadow: none;
+    display: inline-flex; /* Ensure it behaves like an inline-flex element for centering */
+    align-items: center;
+    justify-content: flex-start; /* Align button text with bullet */
+    gap: 10px; /* Space between icon and text within the button-link */
+    width: auto; /* Allow button to size naturally */
+    padding: 10px 20px; /* Smaller padding for button-links in lists */
+    font-size: 1rem; /* Adjust font size */
+    border-radius: 20px; /* Adjust border-radius */
+    box-shadow: 0 6px 18px rgba(0,255,255,0.5), 0 0 25px rgba(0,255,255,0.6); /* Adjusted shadow */
+    background: linear-gradient(90deg, #00bcd4, #00e6e6); /* Consistent gradient */
+}
+
+.main-content-box ul li a.button-link:hover {
+    background: linear-gradient(90deg, #00e6e6, #00bcd4); /* Reverse gradient on hover */
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(0,255,255,0.7), 0 0 35px rgba(0,255,255,0.8); /* Stronger hover glow */
+}
